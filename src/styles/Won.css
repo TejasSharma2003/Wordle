@@ -1,0 +1,27 @@
+.won-dialog
+{
+    background-color: #fff;
+    overflow: hidden;
+    position: absolute;
+    padding:0.8rem 1rem;
+    border-radius: 4px;
+    width: 100px;
+    margin:0 auto;
+    left:0;
+    right: 0;
+    top:4.5rem;
+    opacity:0;
+    transition: opacity 0.5s ease;
+}
+
+.won
+{
+    opacity: 1;
+}
+
+.won-dialog span{
+    font-size: 1.3em;
+    font-weight: 600;
+    ;
+    color:#000;
+}

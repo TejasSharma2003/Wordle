@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Board from "./components/Board";
+import "./App.css"
+import "./styles/Board.css"
+import Keyboard from "./components/Keyboard"
+import {Context} from "./Context";
+import "./styles/Keyboard.css"
+import Welcome from "./components/Welcome.js"
+import "./styles/Welcome.css"
+import Won from "./components/Won"
+import "./styles/Won.css"
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Context>
+        <Won/>
+        <Welcome/>
+        <Board/>
+        <Keyboard/>
+      </Context>
     </div>
   );
 }
