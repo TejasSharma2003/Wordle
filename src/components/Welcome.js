@@ -1,33 +1,43 @@
-import React,{useContext,useEffect} from 'react'
+import React,{useContext,useEffect,useState} from 'react'
 import Switch from '@mui/material/Switch'
 import {boxContent} from "../Context"
 function Welcome() {
-  const {white,setWhite}=useContext(boxContent)
+  const {theme,setTheme}=useContext(boxContent);
+  const [welcometheme,setWelcometheme]=useState('');
   const label = { inputProps: { 'aria-label': 'Switch demo' } };
   const style={
-    color:white ? '#000' :'#fff'
+    color:theme==='white' ? '#000' :'#fff'
   }
 
   useEffect(()=>{
-    if(white)
+    if(theme==='white')
     {
       document.body.style.backgroundColor='#fff';
+      setWelcometheme('border-white');
+    }
+    else if(theme==='dark')
+    {
+      document.body.style.backgroundColor='#121213'
+      setWelcometheme('border-dark');
+
+    }
+  },[theme])
+
+
+  function changetheme(){
+    if(theme==='white')
+    {
+      setTheme('dark')
     }
     else
     {
-      document.body.style.backgroundColor='#121213'
+      setTheme('white');
     }
-  },[white])
-
-
-  console.log("Render")
-  function changeTheme(){
-    setWhite(pre=>!pre);
   }
   return (
-    <div className={`header ${white ? 'border-white' : 'border-dark' }`}>
+    <div className={`header ${welcometheme}`}>
         <h1 style={style}>Wordle</h1> 
-        <Switch className="switch" onClick={changeTheme}{...label} />
+        <Switch className="switch" onClick={changetheme}{...label} />
     </div>
   )
 }

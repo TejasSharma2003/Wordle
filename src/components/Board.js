@@ -6,6 +6,7 @@ import {boxContent} from "../Context"
 function Board() {
 //   const [board, setBoard] = useState(container);
     const {board,setBoard}=useContext(boxContent);
+    
   return (
     <div className="board">
       <div className="row">

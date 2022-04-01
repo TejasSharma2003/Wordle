@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: 2rem;
   font-weight: 600;
 }
@@ -28,18 +27,18 @@
 
 .letter-correct {
   background-color: #538d4e;
-  border: none;
-  color: #fff;
+  border: none !important;
+  color: #fff !important;
 }
 .letter-almost {
   background-color: #b59f3b;
-  border: none;
-  color: #fff;
+  border: none !important;
+  color: #fff !important;
 }
 .letter-error {
   background-color: #3a3a3c;
-  border: none;
-  color: #fff;
+  border: none !important;
+  color: #fff !important;
 }
 
 
@@ -55,3 +54,14 @@
     border:2px solid #d3d6da;
     color:#000;
 }
+
+@media screen and (max-width: 348px) 
+{
+    .box
+    {
+       width: 50px;
+       height: 50px;
+    }
+}
+
+

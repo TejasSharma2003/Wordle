@@ -1,20 +1,69 @@
+
 .keyboard
 {
+    position: absolute;
+    bottom:10px;
     display:flex;
     flex-direction:column;
-    /* justify-content:center; */
-    align-items:center;
+    width: 100%;
+    max-width: 550px;
+    margin:0 auto;
+    left:0;
+    right:0;
+}
+
+
+.colums
+{
+    display: flex;
+    flex-direction: row;
+    margin:0.2rem;
+    /* margin:auto; */
+
+
+}
+
+.first-row
+{
+
+
+}
+.middle-row
+{
+    
+    padding:0 3%
+
+}
+.third-row
+{
+
+    padding:0 5%
 
 }
 
 .btn
 {
     cursor:pointer;
-    padding:1.4rem 1rem;
+    padding:1rem 0;
+    flex:1;
     border: none;
     margin:.2rem;
     border-radius: 5px;
-    /* font-size:1.3rem; */
     font-weight: 600;
 }
+/* 
+@media screen and (max-width: 500px) 
+{
+    .btn
+    {
+        padding: 1rem 0.5rem;
+    }
+}
 
+@media screen and (max-width: 348px) 
+{
+    .btn
+    {
+        padding: 1rem 0.5rem;
+    }
+} */

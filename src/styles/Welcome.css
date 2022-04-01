@@ -23,3 +23,12 @@
 {
     border-bottom: 2px solid #2b2b2c;
 }
+
+
+@media screen and (max-width: 348px) 
+{
+    .header h1
+    {
+        font-size:2rem ;
+    }
+}
