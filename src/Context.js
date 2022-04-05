@@ -4,21 +4,20 @@ import { wordBank } from "./words";
 import Letter from "./components/Letter";
 
 export const boxContent = createContext();
-
 const Context = ({ children }) => {
   const [words, setWords] = useState(new Set());
   const [gameDefault, setGameDefault] = useState(
     JSON.parse(localStorage.getItem("GameDefault")) || ""
   );
-  function createWord() {
-    if(gameDefault.word)
-    {
-      return gameDefault.word
-    }
-    const randomWord=Math.floor(Math.random()*wordBank.length)
+
+  function generateWord()
+  {
+    const randomWord=Math.floor(Math.random()*wordBank.length);
     return wordBank[randomWord].toUpperCase();
-    }
-  const [word] = useState(createWord);
+  }
+
+
+  const [word, setWord] = useState(gameDefault.word || generateWord);
   const [board, setBoard] = useState(gameDefault.board || container);
   const [currentPosition, setCurrentPosition] = useState({
     attempt: gameDefault.attempt || 0,
@@ -31,19 +30,20 @@ const Context = ({ children }) => {
   const [won, setWon] = useState(false);
   const [lost, setLost] = useState(false);
   const [theme, setTheme] = useState(gameDefault.Theme || "white");
-  const [shake, setShake] = useState(false);
+  // const [restart,setRestart]=useState(true);
+  // const [shake, setShake] = useState(false);
   useEffect(() => {
-    localStorage.setItem(
-      "GameDefault",
-      JSON.stringify({
-        'Theme': theme,
-        'attempt': currentPosition.attempt,
-        'position': currentPosition.position,
-        'board': board,
-        'word': word,
-      })
-    );
-  }, [theme, currentPosition]);
+      localStorage.setItem(
+        "GameDefault",
+        JSON.stringify({
+          Theme: theme,
+          attempt: currentPosition.attempt,
+          position: currentPosition.position,
+          board: board,
+          word:word,
+        })
+      );
+  },[theme,currentPosition.position]);
 
   useEffect(() => {
     const allWords = new Set(wordBank);
@@ -76,7 +76,6 @@ const Context = ({ children }) => {
       }
     }
   };
-
 
   const onDelete = () => {
     if (currentPosition.attempt === 0) return;
@@ -119,11 +118,14 @@ const Context = ({ children }) => {
         almostWords,
         setAlmostWords,
         word,
+        setWord,
         won,
         lost,
+        setLost,
+        setWon,
         theme,
         setTheme,
-        shake,
+        generateWord
       }}
     >
       {children}

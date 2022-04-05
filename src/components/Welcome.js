@@ -1,6 +1,7 @@
 import React,{useContext,useEffect,useState} from 'react'
 import Switch from '@mui/material/Switch'
 import {boxContent} from "../Context"
+import Restart from  "./Restart";
 function Welcome() {
   const {theme,setTheme}=useContext(boxContent);
   const [welcometheme,setWelcometheme]=useState('');
@@ -36,6 +37,7 @@ function Welcome() {
   }
   return (
     <div className={`header ${welcometheme}`}>
+        <Restart />
         <h1 style={style}>Wordle</h1> 
         <Switch className="switch" onClick={changetheme}{...label} />
     </div>

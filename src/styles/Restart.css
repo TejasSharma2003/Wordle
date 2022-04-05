@@ -1,0 +1,16 @@
+.whiteRestart
+{
+    color:#000;
+}
+
+.blackRestart
+{
+    color:#fff;
+}
+
+.restartBtn
+{
+    font-size:1.5rem;
+    cursor: pointer
+    ;
+}

@@ -11,6 +11,7 @@ function Letter({ position, attempt , shakeEffect }) {
     setAlmostWords,
     setCorrectWords,
     setInCorrectWords,
+  
     setTheme
   } = useContext(boxContent);
   const [letterTheme,setLetterTheme]=useState('');
@@ -18,7 +19,6 @@ function Letter({ position, attempt , shakeEffect }) {
   let apply;
   let almost;
   if (word) {
-    console.log( board[position][attempt], word[attempt]);
     correct = board[position][attempt] === word[attempt];
     almost =
       !correct &&
