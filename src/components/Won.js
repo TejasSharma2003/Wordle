@@ -1,6 +1,7 @@
 import React,{useContext,useState} from 'react'
 import {boxContent} from "../Context"
-function Won() { //condition if lost or won
+//condition if lost or won
+function Won() { 
     const {lost,won,word}=useContext(boxContent);
   return (
     <div className={`won-dialog ${won ? 'won' : lost ? 'won':'' }`}>{won ? <span>Brilliant</span> : lost ? <span>{word}</span> : ''}</div>
